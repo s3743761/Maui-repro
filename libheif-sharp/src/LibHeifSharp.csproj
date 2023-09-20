@@ -1,0 +1,111 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <RootNamespace>LibHeifSharp</RootNamespace>
+    <AssemblyName>LibHeifSharp</AssemblyName>
+    <AssemblyVersion>3.1.0.0</AssemblyVersion>
+    <FileVersion>3.1.0.0</FileVersion>
+    <Version>3.1.0</Version>
+    <PackageLicenseExpression>LGPL-3.0-or-later</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <Authors>Nicholas Hayes</Authors>
+    <Company>LibHeifSharp contributors</Company>
+    <Copyright>Copyright © 2023 Nicholas Hayes and contributors</Copyright>
+    <PackageTags>libheif heif heic avif</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageReleaseNotes>v3.1.0 - 2023-05-15
+## Added
+
+* A `ColorConversionOptions` property to the `HeifDecodingOptions` class.
+  - Requires LibHeif 1.16.0 or later, it will be ignored on older versions.
+* A `ColorConversionOptions` property to the `HeifEncodingOptions` class.
+  - Requires LibHeif 1.16.0 or later, it will be ignored on older versions.
+* Support for the LibHeif region APIs.
+  - A `GetRegionItem` method to the `HeifContext` class.
+  - `AddRegion` and `GetRegionItemIds` methods to the `HeifImageHandle` class.
+  - These methods require LibHeif 1.16.0 or later.
+* Support for the LibHeif item property APIs.
+  - `AddUserDescriptionProperty`, `GetTransformationProperties` and `GetUserDescriptionProperties` methods to the `HeifContext` class.
+  - These methods require LibHeif 1.16.0 or later.
+
+## Fixed
+
+* The `PixelAspectRatio` property will ignore a default initialized structure.
+  - ISO/IEC 14496-12:2015 requires the horizontal and vertical spacing to be positive numbers.</PackageReleaseNotes>
+    <Description>Provides .NET bindings for libheif.
+
+Features:
+
+* Supports decoding
+    * Top-level images
+    * Thumbnails
+    * Depth images
+    * Vendor-specific auxiliary images
+* Supports encoding
+    * Top-level images
+    * Thumbnails
+* Supports reading and writing meta-data
+
+Requirements:
+
+The libheif shared library must be named `libheif` in order for it to be found by P/Invoke.
+
+The minimum supported libheif version is 1.9.0.</Description>
+    <PackageProjectUrl>https://0xc0000054.github.io/libheif-sharp/</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/0xC0000054/libheif-sharp.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <IncludeSymbols>true</IncludeSymbols>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DocumentationFile>LibHeifSharp.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>LibHeifSharp.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="LibHeifSharpDocs\**" />
+    <EmbeddedResource Remove="LibHeifSharpDocs\**" />
+    <None Remove="LibHeifSharpDocs\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="LibHeifSharp.sln.licenseheader" />
+    <None Remove="LibHeifSharp.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\NuGet-README.md" Pack="true" PackagePath="\README.md" />
+    <SourceRoot Include="$(MSBuildThisFileDirectory)/" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>
