@@ -3,8 +3,8 @@ using Android;
 using Android.Content.PM;
 using AndroidX.Core.App;
 using AndroidX.Core.Content;
-using CommunityToolkit.Maui.Alerts;
 #endif
+using CommunityToolkit.Maui.Alerts;
 using CommunityToolkit.Maui.Core;
 
 namespace MauiApp1

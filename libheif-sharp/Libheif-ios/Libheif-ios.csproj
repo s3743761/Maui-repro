@@ -1,0 +1,50 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+        <TargetFrameworks>net7.0-ios</TargetFrameworks>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Version>1.0.0</Version>
+        <IsBindingProject>true</IsBindingProject>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>true</ImplicitUsings>
+        <IsBindingProject>true</IsBindingProject>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+        <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+        <Deterministic>False</Deterministic>
+        <DebugType>Embedded</DebugType>
+        <EmbedAllSources>True</EmbedAllSources>
+        <NoBindingEmbedding>False</NoBindingEmbedding>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">11.0</SupportedOSPlatformVersion>
+<!--	<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">13.1</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>-->
+</PropertyGroup>
+
+
+
+  <ItemGroup>
+    <Compile Include="libheif.linkwith.cs">
+      <DependentUpon>libheif.a</DependentUpon>
+    </Compile>
+    <Compile Include="libde265.linkwith.cs">
+      <DependentUpon>libde265.a</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ObjcBindingApiDefinition Include="ApiDefinition.cs" />
+    <ObjcBindingCoreSource Include="StructsAndEnums.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <NativeReference Include="libheif.a">
+      <Kind>Static</Kind>
+      <SmartLink>True</SmartLink>
+    </NativeReference>
+  </ItemGroup>
+  <ItemGroup>
+    <NativeReference Include="libde265.a">
+      <Kind>Static</Kind>
+      <SmartLink>True</SmartLink>
+    </NativeReference>
+  </ItemGroup>
+</Project>

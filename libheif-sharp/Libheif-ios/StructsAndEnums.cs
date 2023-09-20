@@ -1,0 +1,5 @@
+﻿namespace Libheif_ios {
+
+}
+
+

@@ -60,6 +60,7 @@ The minimum supported libheif version is 1.9.0.</Description>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
+    <Configurations>Release;Debug</Configurations>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -81,7 +82,6 @@ The minimum supported libheif version is 1.9.0.</Description>
 
   <ItemGroup>
     <None Remove="LibHeifSharp.sln.licenseheader" />
-    <None Remove="LibHeifSharp.xml" />
   </ItemGroup>
 
   <ItemGroup>
