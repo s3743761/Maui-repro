@@ -39,6 +39,8 @@
     <NativeReference Include="libheif.a">
       <Kind>Static</Kind>
       <SmartLink>True</SmartLink>
+      <ForceLoad>True</ForceLoad>
+      <NeedsGccExceptionHandling>True</NeedsGccExceptionHandling>
     </NativeReference>
   </ItemGroup>
   <ItemGroup>

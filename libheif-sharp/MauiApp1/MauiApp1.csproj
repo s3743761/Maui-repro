@@ -89,12 +89,12 @@
 	</ItemGroup>
 
 	<ItemGroup Condition="$(TargetFramework.Contains('-android'))">
-			 <ProjectReference Include="..\Libheif-android\Libheif-android.csproj" />
+		<ProjectReference Include="..\Libheif-android\Libheif-android.csproj" />
 	</ItemGroup>
 
 
 	<ItemGroup Condition="$(TargetFramework.Contains('-ios')) ">
-			  <ProjectReference Include="..\Libheif-ios\Libheif-ios.csproj" />
+		<ProjectReference Include="..\Libheif-ios\Libheif-ios.csproj" />
 	</ItemGroup>
 
 

@@ -27,7 +27,7 @@ namespace LibHeifSharp.Interop
 {
     internal static partial class LibHeifNative
     {
-        private const string DllName = "libheif";
+        private const string DllName = "__Internal";
         private const CallingConvention DllCallingConvention = CallingConvention.Cdecl;
 
         [DllImport(DllName, CallingConvention = DllCallingConvention)]
