@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ViewCell
+    x:Class="FontAutoScalingMaui.ListViewCell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:FontAutoScalingMaui"
+    x:DataType="local:Model">
+    <Grid
+        Padding="16,12,12,12"
+        ColumnDefinitions="Auto,*"
+        ColumnSpacing="12"
+        RowDefinitions="Auto">
+
+        <Button
+            Grid.Row="0"
+            Grid.Column="0"
+            FontSize="24"
+            VerticalOptions="Center" />
+
+        <Grid
+            Grid.Row="0"
+            Grid.Column="1"
+            ColumnDefinitions="*"
+            RowDefinitions="Auto,Auto">
+
+            <Label Grid.Row="0" Text="{Binding Name}" />
+
+            <Label Grid.Row="1" Text="{Binding Description}" />
+        </Grid>
+
+    </Grid>
+</ViewCell>
