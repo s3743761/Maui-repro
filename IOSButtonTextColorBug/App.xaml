@@ -32,7 +32,7 @@
                             <VisualState x:Name="Normal" />
                             <VisualState x:Name="Pressed">
                                 <VisualState.Setters>
-                                    <Setter Property="TextColor" Value="Red" />
+                                    <Setter Property="TextColor" Value="DarkGreen" />
                                     <Setter Property="BorderColor" Value="DarkGrey" />
                                     <Setter Property="BorderWidth" Value="3" />
                                 </VisualState.Setters>
